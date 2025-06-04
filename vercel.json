@@ -9,7 +9,7 @@
   },
   "headers": [
     {
-      "source": "/bgmsc",
+      "source": "/bgmsc/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
