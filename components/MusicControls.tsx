@@ -65,7 +65,7 @@ export const MusicControls = ({
         )}
       </div>
 
-      <div className="text-white/60 text-xs hidden md:block">Custom BGM</div>
+      <div className="text-white/60 text-xs hidden md:block">Ocean Waves</div>
       <Music className="w-4 h-4 text-white/60" />
     </div>
   )
