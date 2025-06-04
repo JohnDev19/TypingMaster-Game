@@ -10,7 +10,7 @@ export const useBackgroundMusic = () => {
   const [autoplayEnabled, setAutoplayEnabled] = useState(true)
 
   useEffect(() => {
-    audioRef.current = new Audio("/bgmsc/public/bgmsc/ocean-wave-ambient-boy-main-version-16232-09-09.mp3")
+    audioRef.current = new Audio("/bgmsc/ocean-wave-ambient-boy-main-version-16232-09-09.mp3")
     audioRef.current.loop = true
     audioRef.current.volume = volume
 
