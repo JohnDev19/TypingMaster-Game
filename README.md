@@ -1,10 +1,10 @@
-# TypingMaster - Professional Typing Game
+# TypingMaster - Typing Game
 
 A simple typing game built with Next.js and TypeScript. Master your typing skills with 50 challenging levels across 4 difficulty modes.
 
 ## 🚀 Live Demo
 
-Visit the live demo: [TypingMaster Game](...)
+Visit the live demo: [Typing Game](https://typing-master-game-sigma.vercel.app/)
 
 ## 🛠️ Tech Stack
 
@@ -51,10 +51,6 @@ The game is fully optimized for mobile devices with:
 - Responsive layouts
 - Optimized text sizes
 - Mobile-specific animations
-
-## 🎵 Audio
-
-Place your background music file at `public/bgmsc` for custom audio support.
 
 ## 📄 License
 
