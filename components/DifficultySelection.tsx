@@ -16,7 +16,10 @@ export const DifficultySelection = ({ onSelectDifficulty }: DifficultySelectionP
       wpm: "10-30 WPM",
       icon: Book,
       color: "from-green-500 to-emerald-600",
+      hoverColor: "from-green-400 to-emerald-500",
       bgColor: "bg-green-500/20",
+      borderColor: "border-green-500/30",
+      textColor: "text-green-400",
       features: ["Simple sentences", "Common words", "Basic punctuation", "Gentle learning curve"],
     },
     {
@@ -26,7 +29,10 @@ export const DifficultySelection = ({ onSelectDifficulty }: DifficultySelectionP
       wpm: "30-60 WPM",
       icon: Target,
       color: "from-blue-500 to-cyan-600",
+      hoverColor: "from-blue-400 to-cyan-500",
       bgColor: "bg-blue-500/20",
+      borderColor: "border-blue-500/30",
+      textColor: "text-blue-400",
       features: ["Complex sentences", "Technical terms", "Mixed content", "Moderate challenges"],
     },
     {
@@ -36,7 +42,10 @@ export const DifficultySelection = ({ onSelectDifficulty }: DifficultySelectionP
       wpm: "60-90 WPM",
       icon: Zap,
       color: "from-orange-500 to-red-600",
+      hoverColor: "from-orange-400 to-red-500",
       bgColor: "bg-orange-500/20",
+      borderColor: "border-orange-500/30",
+      textColor: "text-orange-400",
       features: ["Programming code", "Special characters", "Speed challenges", "Advanced vocabulary"],
     },
     {
@@ -46,7 +55,10 @@ export const DifficultySelection = ({ onSelectDifficulty }: DifficultySelectionP
       wpm: "90+ WPM",
       icon: Crown,
       color: "from-purple-500 to-pink-600",
+      hoverColor: "from-purple-400 to-pink-500",
       bgColor: "bg-purple-500/20",
+      borderColor: "border-purple-500/30",
+      textColor: "text-purple-400",
       features: ["Academic texts", "Complex code", "Multiple languages", "Expert level"],
     },
   ]
@@ -85,8 +97,17 @@ export const DifficultySelection = ({ onSelectDifficulty }: DifficultySelectionP
             return (
               <div
                 key={difficulty.id}
-                className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-2xl group"
+                className={`
+                  bg-white/10 backdrop-blur-lg rounded-2xl p-6 border ${difficulty.borderColor} 
+                  hover:bg-gradient-to-br hover:${difficulty.hoverColor} hover:border-white/40
+                  transition-all duration-500 hover:scale-105 hover:shadow-2xl group relative overflow-hidden
+                `}
               >
+                {/* Hover gradient overlay */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${difficulty.hoverColor} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}
+                ></div>
+
                 {/* Number badge */}
                 <div className="text-6xl font-bold text-white/20 mb-4 group-hover:text-white/30 transition-colors">
                   {index + 1}
@@ -94,18 +115,22 @@ export const DifficultySelection = ({ onSelectDifficulty }: DifficultySelectionP
 
                 {/* Icon */}
                 <div
-                  className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-gradient-to-r ${difficulty.color}`}
+                  className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-gradient-to-r ${difficulty.color} group-hover:shadow-lg transition-all duration-300`}
                 >
                   <Icon className="w-8 h-8 text-white" />
                 </div>
 
                 {/* Title and subtitle */}
-                <h3 className="text-2xl font-bold text-white mb-2">{difficulty.title}</h3>
-                <p className="text-purple-200 mb-4">{difficulty.subtitle}</p>
+                <h3 className="text-2xl font-bold text-white mb-2 group-hover:scale-105 transition-transform duration-300">
+                  {difficulty.title}
+                </h3>
+                <p className={`${difficulty.textColor} mb-4 group-hover:text-white transition-colors duration-300`}>
+                  {difficulty.subtitle}
+                </p>
 
                 {/* WPM badge */}
                 <div
-                  className={`inline-block px-4 py-2 rounded-full text-sm font-semibold text-white mb-6 ${difficulty.bgColor}`}
+                  className={`inline-block px-4 py-2 rounded-full text-sm font-semibold text-white mb-6 ${difficulty.bgColor} group-hover:bg-white/20 transition-colors duration-300`}
                 >
                   {difficulty.wpm}
                 </div>
@@ -121,8 +146,13 @@ export const DifficultySelection = ({ onSelectDifficulty }: DifficultySelectionP
                 {/* Features */}
                 <ul className="space-y-2 mb-8">
                   {difficulty.features.map((feature, i) => (
-                    <li key={i} className="flex items-center text-sm text-white/70">
-                      <div className={`w-2 h-2 rounded-full mr-3 bg-gradient-to-r ${difficulty.color}`} />
+                    <li
+                      key={i}
+                      className="flex items-center text-sm text-white/70 group-hover:text-white/90 transition-colors duration-300"
+                    >
+                      <div
+                        className={`w-2 h-2 rounded-full mr-3 bg-gradient-to-r ${difficulty.color} group-hover:scale-125 transition-transform duration-300`}
+                      />
                       {feature}
                     </li>
                   ))}
@@ -131,7 +161,11 @@ export const DifficultySelection = ({ onSelectDifficulty }: DifficultySelectionP
                 {/* Start button */}
                 <Button
                   onClick={() => onSelectDifficulty(difficulty.id)}
-                  className={`w-full bg-gradient-to-r ${difficulty.color} hover:opacity-90 text-white font-semibold py-3 rounded-xl transition-all duration-300 hover:shadow-lg`}
+                  className={`
+                    w-full bg-gradient-to-r ${difficulty.color} hover:${difficulty.hoverColor} 
+                    text-white font-semibold py-3 rounded-xl transition-all duration-300 
+                    hover:shadow-lg group-hover:scale-105 group-hover:shadow-xl
+                  `}
                 >
                   <Zap className="w-4 h-4 mr-2" />
                   Start Challenge
