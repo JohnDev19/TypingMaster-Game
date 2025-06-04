@@ -1,0 +1,29 @@
+{
+  "name": "TypingMaster - Professional Typing Game",
+  "short_name": "TypingMaster",
+  "description": "Master your typing skills with 50 challenging levels across 4 difficulty modes. Created by JohnDev19",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#8b5cf6",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["education", "games", "productivity"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "author": "JohnDev19"
+}
