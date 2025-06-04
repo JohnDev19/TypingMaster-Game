@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 
@@ -52,11 +52,13 @@ export const metadata: Metadata = {
     apple: "/images/keyboard.png",
   },
   manifest: "/manifest.json",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: "#8b5cf6",
 }
 
 export default function RootLayout({
@@ -70,7 +72,6 @@ export default function RootLayout({
         <link rel="icon" href="/images/keyboard.png" />
         <meta name="author" content="JohnDev19" />
         <meta name="creator" content="JohnDev19" />
-        <meta name="theme-color" content="#8b5cf6" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
